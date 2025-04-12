@@ -1,0 +1,9 @@
+[Unit]
+Description=Delay mount NFS after boot
+
+[Timer]
+OnBootSec=30sec
+Unit=nfs-auto-mount.service
+
+[Install]
+WantedBy=timers.target

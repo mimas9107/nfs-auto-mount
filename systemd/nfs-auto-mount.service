@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto Mount NFS via Timer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/nfs-auto-mount/scripts/mount.sh
+RemainAfterExit=true

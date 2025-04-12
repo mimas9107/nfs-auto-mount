@@ -1,0 +1,12 @@
+[Unit]
+Description=Auto Mount NFS in background (non-blocking)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/nfs-auto-mount/scripts/mount-nonblocking.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

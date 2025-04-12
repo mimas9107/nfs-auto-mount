@@ -1,0 +1,13 @@
+[Unit]
+Description=Auto Unmount NFS before shutdown
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+Conflicts=shutdown.target reboot.target halt.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/nfs-auto-mount/scripts/pre-shutdown-unmount.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target
