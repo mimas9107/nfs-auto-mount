@@ -4,9 +4,9 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-Type=oneshot
-ExecStart=/usr/local/nfs-auto-mount/scripts/mount-nonblocking.sh
-RemainAfterExit=true
+Type=simple
+ExecStart=/usr/local/nfs-auto-mount/scripts/mount-nonblocking.sh &
+RemainAfterExit=no
 
 [Install]
 WantedBy=multi-user.target
